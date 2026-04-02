@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💖</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9ecf, #ffcce6);
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    transform: rotate(45deg);
+    animation: float 6s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: -10px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        bottom: -10%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 110%;
+        opacity: 0;
+    }
+}
+
+/* Content */
+.container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 0 0 15px white;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 25px #ff66b2; }
+}
+
+p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+/* Button */
+button {
+    padding: 12px 25px;
+    border: none;
+    background: white;
+    color: #ff4da6;
+    font-size: 1em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4da6;
+    color: white;
+}
+
+/* Hidden Message */
+.hidden {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.3em;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Music -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+
+<!-- Floating Hearts -->
+<script>
+for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+}
+</script>
+
+<!-- Main Content -->
+<div class="container">
+    <h1>Happy Birthday 🎂💖</h1>
+
+    <p>
+        On this special day, I just want you to know that you’re someone truly special.
+        Not just because it’s your birthday, but because of who you are every single day.
+        The way you smile, the way you carry yourself, the little things you do—
+        they don’t go unnoticed.
+    </p>
+
+    <p>
+        Honestly… I admire you more than I probably should admit.
+        You have this presence that just makes everything feel lighter,
+        and even without trying, you leave an impact.
+    </p>
+
+    <p>
+        I hope today brings you happiness, laughter, and everything your heart quietly wishes for.
+        Because if anyone deserves it… it’s you.
+    </p>
+
+    <button onclick="showMessage()">Click this 💌</button>
+
+    <div id="secret" class="hidden">
+        And… if I’m being real for a second—
+        you’re one of the reasons my days feel a little brighter. 🌸
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("secret").style.display = "block";
+}
+</script>
+
+</body>
+</html>
