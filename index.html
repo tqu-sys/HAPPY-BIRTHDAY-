@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 🎉</title>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    * {
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff9a9e, #fecfef);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(20px);
+        padding: 40px 30px;
+        border-radius: 25px;
+        text-align: center;
+        width: 360px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        animation: float 3s ease-in-out infinite;
+        position: relative;
+        overflow: hidden;
+    }
+
+    @keyframes float {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+
+    h1 {
+        font-size: 28px;
+        color: #fff;
+        margin-bottom: 15px;
+        text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    p {
+        font-size: 15px;
+        color: #fffdfd;
+        margin-bottom: 25px;
+        line-height: 1.6;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    button {
+        border: none;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-size: 15px;
+        cursor: pointer;
+        background: #fff;
+        color: #ff6b81;
+        font-weight: 700;
+        transition: 0.3s;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background: #ffeaa7;
+        color: #ff4757;
+    }
+
+    .hidden {
+        display: none;
+        margin-top: 20px;
+        font-size: 15px;
+        color: #fffdfa;
+        line-height: 1.6;
+        text-shadow: 0 1px 5px rgba(0,0,0,0.4);
+        animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(10px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    .spark {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 50%;
+        opacity: 0.8;
+        pointer-events: none;
+        animation: sparkMove 2s linear infinite;
+    }
+
+    @keyframes sparkMove {
+        0% { transform: translateY(0) scale(1); opacity: 1;}
+        100% { transform: translateY(-120px) scale(0.3); opacity: 0;}
+    }
+
+    .heart, .balloon {
+        position: absolute;
+        font-size: 22px;
+        animation: rise 4s linear forwards;
+    }
+
+    @keyframes rise {
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(-180px); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Happy Birthday 🎂</h1>
+
+    <p>
+        Today is a very special day…  
+        because someone I truly admire was born 😊
+    </p>
+
+    <button onclick="showWish()">Open your wish 🎁</button>
+
+    <div class="hidden" id="wishText">
+        Happy Birthday, Nurin Faqihah 🎂✨  
+        <br><br>
+        Wishing you a day full of joy, laughter, and all the little moments that make life beautiful.  
+        <br><br>
+        May every dream you chase come closer, and may you always find happiness in everything you do 🤍  
+        <br><br>
+        Keep shining as your amazing self —  
+        because that’s exactly what makes you special and admired 🌱  
+        <br><br>
+        Even from afar, I’m sending all the best wishes your way! 😊
+    </div>
+</div>
+
+<script>
+function showWish() {
+    const wish = document.getElementById('wishText');
+    wish.classList.remove('hidden');
+    createSparks();
+}
+
+// Generate floating spark animations
+function createSparks() {
+    for(let i=0; i<20; i++){
+        let spark = document.createElement('div');
+        spark.classList.add('spark');
+        spark.style.left = Math.random() * 320 + 'px';
+        spark.style.bottom = '20px';
+        spark.style.animationDuration = 1 + Math.random()*2 + 's';
+        document.querySelector('.card').appendChild(spark);
+        setTimeout(()=> spark.remove(), 2500);
+    }
+}
+</script>
+
+</body>
+</html>
